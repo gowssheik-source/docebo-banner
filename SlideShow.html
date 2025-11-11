@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Docebo Banner Slideshow</title>
+
+<style>
+/* 🎨 CSS START - CORRECTED FOR RESPONSIVENESS */
+/* New Body Reset (Excellent) */
+body {
+    margin: 0;
+    padding: 0;
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.slideshow-container {
+  /* 1. FIX: Use max-width to cap the size at 1200px on large screens. */
+  max-width: 1400px; 
+  /* 2. FIX: Use 100% width so it shrinks to fit the screen on mobile. */
+  width: 100%; 
+  
+  /* 3. Height is fine, but needs media query for mobile (see below). */
+  height: 400px;
+  position: relative;
+  /* Center the container on the page */
+  margin: 0 auto;
+  /* Ensure nothing overflows if images are larger */
+  overflow: hidden; 
+}
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+  /* Ensure each slide occupies the full container size */
+  width: 100%;
+  height: 100%;
+}
+
+/* Make images fill the slide area */
+.slideshow-container img {
+    /* 3. Make the image fill the slide (1200x400) */
+    width: 100%; 
+    height: 100%;
+    /* OPTIONAL: Use object-fit to control image scaling. 
+       'cover' crops the image to fill the space without distortion. 
+       'contain' shows the full image, adding blank space if aspect ratios differ. */
+    object-fit: cover; 
+    display: block;
+}
+/* 🚨 NEW OVERLAY CSS 🚨 */
+.dcbo-overlay {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    color: #fff;
+    background: rgba(0,0,0,0.5); /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 40%;
+    z-index: 2; /* Ensures text is on top of the image */
+}
+/* Ensure font is inherited by button and paragraphs */
+/* This targets the main heading inside the overlay */
+.dcbo-overlay h2 {
+    margin-top: 0; 
+}
+
+/* Optional: You may also want to adjust the spacing of the h3 */
+.dcbo-overlay h3 {
+    margin-top: 5px; /* Adds a small gap below h2 */
+}
+.dcbo-overlay p {
+	margin-bottom: 15px; /* Adjust this value if needed, 15px is a good standard */
+    font-family: inherit; /* Ensures these elements use the font set on the body */
+}
+
+/* NEW BUTTON CSS */
+.dcbo-btn {
+    display: inline-block;
+    background-color: #186aff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.dcbo-btn:hover { 
+	background-color: #0043c5; 
+}
+
+/* Container for dots/bullets/indicators (rest remains the same) */
+.dot-container {
+    text-align: center;
+    /* Use positioning to place the dots inside the 400px area */
+    position: absolute;
+    bottom: 10px; /* Distance from the bottom of the banner */
+    left: 0;
+    right: 0;
+    z-index: 10; /* Ensures dots appear on top of the image */
+}
+
+/* --- BASE DOT STYLE (All Dots) --- */
+.dot {
+    /* Use 'dot' if you're using JavaScript control */
+    height: 14px;
+    width: 14px;
+    margin: 0 4px;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #cccccc; /* Subtle light gray border for visibility */
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); 
+    
+    /* 🚨 CRITICAL FIX: Include border/padding in element's total size */
+    box-sizing: border-box;
+}
+
+/* --- ACTIVE DOT STYLE (Blue Ring & Zoom) --- */
+.active-dot,
+.dot:hover {
+    /* 🚨 Use transform: scale for the zoom effect */
+    transform: scale(1.2); /* Scales the dot up by 20% from its center */
+
+    /* Set the strong Blue Ring (keep the original 12px dimensions) */
+    background-color: #ffffff; 
+    border: 3px solid #186aff !important; /* Thicker, strong blue border */
+}
+
+/* Fade animation (remains the same) */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* Media Query for screens 768px wide or smaller (typical mobile/tablet breakpoint) */
+@media screen and (max-width: 768px) {
+  .slideshow-container {
+    /* Change the height to a smaller value for mobile to save vertical space */
+    height: 350px; 
+  }
+}
+/* 🎨 CSS END */
+</style>
+
+</head>
+<body>
+
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+    <img src="OpenTextMainSlide.jpg" alt="Welcome to the OpenText Community" />
+    
+    <div class="dcbo-overlay">
+        <h2>Welcome to the Community</h2>
+        <h3>Connect, Learn, Share</h3>
+        <p>Join discussions and events that bring OpenText together.</p>
+        <a class="dcbo-btn" href="#">Join the Conversation</a>
+    </div>
+    </div>
+
+    <div class="mySlides fade">
+    <img src="FeaturedDiscussionsSlide.jpg" alt="Featured OpenText Discussions" />
+    
+    <div class="dcbo-overlay">
+        <h2>Featured Discussions</h2>
+        <h3>Share Ideas</h3>
+        <p>Learn from peers across the OpenText Community.</p>
+        <a class="dcbo-btn" href="#">Join Now</a>
+    </div>
+</div>
+
+    <div class="mySlides fade">
+    <img src="LearningTogetherSlide.jpg" alt="Upcoming OpenText Events" />
+    
+    <div class="dcbo-overlay">
+        <h2>Upcoming Events</h2>
+        <h3>Stay Engaged</h3>
+        <p>Check out upcoming webinars and networking opportunities.</p>
+        <a class="dcbo-btn" href="#">View Events</a>
+    </div>
+</div>
+    
+    <div class="mySlides fade">
+    <img src="LearnConnectGrowSlide.jpg" alt="Learning Together at OpenText" />
+    
+    <div class="dcbo-overlay">
+        <h2>Learning Together</h2>
+        <h3>Grow Your Skills</h3>
+        <p>Explore new training programs and resources from OpenText.</p>
+        <a class="dcbo-btn" href="#">Explore Learning</a>
+    </div>
+</div>
+
+    </div>
+
+<div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+
+<script>
+// ⚙️ JAVASCRIPT START
+
+let slideIndex = 1; 
+let timer; // Variable to hold the interval timer ID
+const intervalDuration = 4000; // Time between auto-slides (4 seconds)
+
+// 1. Initial setup when the page loads
+showSlides(slideIndex);
+startAutoRotate(); 
+
+// Function to start the continuous auto-rotation
+function startAutoRotate() {
+    // Set a recurring timer that calls autoNextSlide every 'intervalDuration' ms
+    timer = setInterval(autoNextSlide, intervalDuration);
+}
+
+// Function to reset the timer (used when a dot is clicked)
+function resetAutoRotate() {
+    clearInterval(timer); // Stop the current timer
+    startAutoRotate();    // Start a brand new timer
+}
+
+// Function that handles the logic for going to the next slide automatically
+function autoNextSlide() {
+    // Increment the slide index, then show the slide
+    slideIndex++;
+    showSlides(slideIndex);
+}
+
+// Function to handle dot clicks (Manual Control)
+function currentSlide(n) {
+    // 1. Set the slideIndex to the clicked dot's number
+    slideIndex = n;
+    
+    // 2. Show the selected slide
+    showSlides(slideIndex);
+    
+    // 3. IMPORTANT: Reset the auto-rotation timer
+    // This gives the user the full 4 seconds before the next auto-slide
+    resetAutoRotate(); 
+}
+
+// Core function to display the correct slide and update the dots
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    
+    // Loop back to the first slide when the end is reached
+    if (n > slides.length) {slideIndex = 1}    
+    
+    // Optional: Loop to the last slide if going backwards (not needed for auto-rotation)
+    if (n < 1) {slideIndex = slides.length}
+    
+    // Hide ALL slides and remove 'active' class from all dots
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+        dots[i].className = dots[i].className.replace(" active-dot", "");
+    }
+    
+    // Display the CURRENT slide (index-1 because JS arrays are zero-based)
+    slides[slideIndex-1].style.display = "block";  
+    
+    // Mark the CURRENT dot as active
+    dots[slideIndex-1].className += " active-dot";
+}
+
+// ⚙️ JAVASCRIPT END
+</script>
+
+</body>
+</html>
