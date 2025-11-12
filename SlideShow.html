@@ -45,31 +45,45 @@ body {
     object-fit: cover; 
     display: block;
 }
-/* 🚨 NEW OVERLAY CSS 🚨 */
+/* --- OVERLAY CONTAINER --- */
 .dcbo-overlay {
     position: absolute;
     top: 15%;
     left: 5%;
     color: #fff;
-    background: rgba(0,0,0,0.5); /* Semi-transparent black background */
+    background: rgba(0,0,0,0.5); 
     padding: 20px;
     border-radius: 8px;
     max-width: 40%;
-    z-index: 2; /* Ensures text is on top of the image */
-}
-/* Ensure font is inherited by button and paragraphs */
-/* This targets the main heading inside the overlay */
-.dcbo-overlay h2 {
-    margin-top: 0; 
+    z-index: 2; 
 }
 
-/* Optional: You may also want to adjust the spacing of the h3 */
-.dcbo-overlay h3 {
-    margin-top: 5px; /* Adds a small gap below h2 */
-}
+/* --- TEXT SPACING AND FONT INHERITANCE --- */
+
+/* Reset all margins on h2, h3, and p inside the overlay for tight control */
+.dcbo-overlay h2,
+.dcbo-overlay h3,
 .dcbo-overlay p {
-	margin-bottom: 15px; /* Adjust this value if needed, 15px is a good standard */
-    font-family: inherit; /* Ensures these elements use the font set on the body */
+    margin-top: 0;
+    margin-bottom: 0; /* Initial aggressive reset */
+    font-family: inherit; /* Inherits the Open Sans font from the body */
+}
+
+/* 1. TITLE (H2) */
+.dcbo-overlay h2 {
+    /* Retains margin-top: 0 from the reset above */
+    margin-bottom: 5px; /* Adds small space below H2 */
+}
+
+/* 2. SUBTITLE (H3) */
+.dcbo-overlay h3 {
+    /* Retains margin-top: 0 from the reset above */
+    margin-bottom: 15px; /* Adds space between H3 and the paragraph */
+}
+
+/* 3. DESCRIPTION (P) */
+.dcbo-overlay p {
+    margin-bottom: 20px; /* Space between paragraph and button */
 }
 
 /* NEW BUTTON CSS */
@@ -174,18 +188,7 @@ body {
 </div>
 
     <div class="mySlides fade">
-    <img src="LearningTogetherSlide.jpg" alt="Upcoming OpenText Events" />
-    
-    <div class="dcbo-overlay">
-        <h2>Upcoming Events</h2>
-        <h3>Stay Engaged</h3>
-        <p>Check out upcoming webinars and networking opportunities.</p>
-        <a class="dcbo-btn" href="#">View Events</a>
-    </div>
-</div>
-    
-    <div class="mySlides fade">
-    <img src="LearnConnectGrowSlide.jpg" alt="Learning Together at OpenText" />
+    <img src="LearningTogetherSlide.jpg" alt="Learning Together at OpenText" />
     
     <div class="dcbo-overlay">
         <h2>Learning Together</h2>
@@ -193,6 +196,19 @@ body {
         <p>Explore new training programs and resources from OpenText.</p>
         <a class="dcbo-btn" href="#">Explore Learning</a>
     </div>
+	
+</div>
+    
+    <div class="mySlides fade">
+    <img src="LearnConnectGrowSlide.jpg" alt="Upcoming OpenText Events" />
+    
+    <div class="dcbo-overlay">
+        <h2>Upcoming Events</h2>
+        <h3>Stay Engaged</h3>
+        <p>Check out upcoming webinars and networking opportunities.</p>
+        <a class="dcbo-btn" href="#">View Events</a>
+    </div>
+	
 </div>
 
     </div>
