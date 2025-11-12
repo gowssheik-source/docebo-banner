@@ -86,18 +86,30 @@ body {
     margin-bottom: 20px; /* Space between paragraph and button */
 }
 
-/* NEW BUTTON CSS */
+/* --- FINALIZED ROUNDED BUTTON STYLE (.dcbo-btn) --- */
 .dcbo-btn {
     display: inline-block;
-    background-color: #186aff;
+    /* Retain the bright blue background color */
+    background-color: #186aff; 
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
+    /* Generous padding for a larger button */
+    padding: 10px 25px; /* Slightly increased horizontal padding */
+    font-size: 1em; /* Standard font size */
     font-weight: 500;
+    /* 🚨 CRITICAL: High border-radius for the pill shape */
+    border-radius: 12px; /* Adjust this value as needed for desired roundness */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Indicate it's clickable */
 }
 .dcbo-btn:hover { 
-	background-color: #0043c5; 
+    background-color: #0043c5; /* Slightly darker on hover */
+}
+
+/* Ensure the focus style for accessibility */
+.dcbo-btn:focus { 
+    outline: 2px solid #186aff; /* Bright blue outline for keyboard navigation */
+    outline-offset: 2px; /* Moves the outline slightly outside the button */
 }
 
 /* Container for dots/bullets/indicators (rest remains the same) */
